@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+/* nav styles start start */
+header {
+  background: rgba(85, 214, 170, 0.85);
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.logo {
+  color: white;
+  font-size: 2rem;
+}
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  position: absolute;
+}
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+.nav-toggle-label span::after {
+  top: 7px;
+}
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0%;
+  background: rgba(85, 214, 170, 0.85);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+nav ul {
+  margin: 0;
+  padding: 0%;
+  list-style: none;
+}
+nav li {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+nav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+nav li a:hover {
+  color: black;
+}
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 1fr);
+  }
+  .logo {
+    grid-column: 1 / 2;
+    text-align: left;
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+  }
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+  nav li {
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
+  nav li a {
+    opacity: 1;
+    position: relative;
+  }
+  nav li a::before {
+    content: "";
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -0.3em;
+    left: 0%;
+    right: 0%;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+  nav li a:hover::before {
+    transform: scale(1, 1);
+  }
+}
+/* Nav style end */
+
+/* Game start */
+section {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.game-wrapper {
+  max-width: 500px;
+  border: 2px solid blue;
+  box-shadow: blueviolet 5px 5px;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr ifr;
+  row-gap: 1rem;
+  color: greenyellow;
+}
+.problem {
+  grid-column: 1 / 3;
+  grid-row: 1 /2;
+  justify-self: center;
+  padding-top: 2rem;
+  font-size: 3rem;
+}
+button {
+  width: 100px;
+  height: 100px;
+  font-size: 3rem;
+  border-radius: 20px;
+  border: 2px solid blue;
+  box-shadow: blueviolet 2px 2px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: white;
+}
+.btn1 {
+  grid-column: 1 /2;
+  grid-row: 2/3;
+  justify-self: center;
+  background-color: rgba(220, 20, 60, 1);
+}
+.btn2 {
+  grid-column: 2/3;
+  grid-row: 2 /3;
+  justify-self: center;
+  justify-self: center;
+  background-color: rgb(20, 220, 120);
+}
+.btn3 {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  justify-self: center;
+  justify-self: center;
+  background-color: rgb(240, 243, 77);
+}
+.btn4 {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  justify-self: center;
+  justify-self: center;
+  background-color: rgb(128, 142, 221);
+}
+.correct-text {
+  grid-column: 1/3;
+  grid-row: 4/5;
+  font-size: 1rem;
+  justify-self: center;
+}
+.wrong-text {
+  grid-column: 1/3;
+  grid-row: 5/6;
+  font-size: 1rem;
+  text-align: center;
+}
+.prog-bar-wrapper {
+  position: relative;
+  display: flex;
+  grid-column: 1/3;
+  grid-row: 6/7;
+  width: 200px;
+  height: 25px;
+  border: #c7c7c7 solid 1px;
+  opacity: 0.5;
+  border-right: none;
+  justify-self: center;
+}
+.prog-bar-box {
+  border-right: solid #c7c7c7 1px;
+  opacity: 0.9;
+  height: 100%;
+  width: 20px;
+}
+.inner-prog-bar {
+  position: absolute;
+  background-color:lime;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  transform-origin: left right;
+  transform: scaleX(0);
+  transition: transform 0.4s ease-out;
+}
+.start-btn {
+  grid-column: 1/3;
+  grid-row: 7/8;
+  font-size: 1.2rem;
+  height: 2rem;
+  width: 60px;
+  justify-self: center;
+  margin-bottom: 0.5rem;
+  background-color: hotpink;
+  cursor: pointer;
+}
+.start-btn:hover {
+  color: white;
+  background-color: transparent;
+}
+.game-end-text {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  display: none;
+  color: white;
+}
+
+.game-end-animate {
+  animation-name: animate;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+@keyframes animate {
+  0% {
+    font-size: 1.5rem;
+    color: lawngreen;
+  }
+  100% {
+    font: 1rem;
+    color: white;
+  }
+}

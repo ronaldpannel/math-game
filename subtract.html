@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>subtract</title>
+</head>
+<body>
+    <header>
+        <h1 class="logo">MATH GAME -</h1>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" >
+        <nav>
+            <ul class="navList">
+                <li><a href="index.html">Addition</a></li>
+                <li><a href="subtract.html">Subtraction</a></li>
+                <li><a href="multiply.html">Multiplication</a></li>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+    <section>
+        <div class="game-wrapper">
+            <div class="game-end-text" id="gameEndDiv"><h1 id="gameEndMess">Unlucky Try Again</h1></div>
+            <h1 class="problem"><span id="num1">0</span> - <span id="num2">0</span></s></h1>
+            <button class="btn1" class="btn" id="btn1">1</button>
+            <button class="btn2" class="btn" id="btn2">2</button>
+            <button class="btn3" class="btn" id="btn3">3</button>
+            <button class="btn4" class="btn" id="btn4">4</button>
+            <h1 class="correct-text">You need <span id="pointsScore">10</span> more points to win</h1>
+            <h1 class="wrong-text">You have <span id="wrongScore">3</span> incorrect answers left</h1>
+            <div class="prog-bar-wrapper">
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="prog-bar-box"></div>
+                <div class="inner-prog-bar" id="innerProgBar"></div>
+            </div>
+            <button class="start-btn" id="startBtn">Start</button>
+        </div>
+    </section>
+    
+
+
+    <script src="subtract.js"></script>
+</body>
+</html>
